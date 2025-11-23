@@ -2,53 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Alokchitra – আলোকচিত্র</title>
+  <title>Alokchitra – The World Through the Camera’s Eye</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Alokchitra – A creative photography community from Bangladesh. The World Through the Camera’s Eye." />
+  <meta name="description" content="Alokchitra is a photography community and platform built for photographers who want to grow, connect and share powerful visual stories." />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f5f7fc;
+      --bg: #f4f6fb;
       --bg-soft: #ffffff;
-      --bg-soft-2: #eef1fb;
-      --border-soft: #dde2f2;
+      --bg-soft-2: #edf1ff;
+      --border-soft: #d9e0f5;
       --accent: #1e88ff;
-      --accent-soft: rgba(30, 136, 255, 0.08);
+      --accent-soft: rgba(30, 136, 255, 0.12);
+      --accent-strong: #0f5cd5;
       --accent-orange: #ff9800;
-      --text-main: #151a33;
-      --text-soft: #5b617e;
+      --text-main: #141936;
+      --text-soft: #5c6384;
+      --danger: #f44336;
+      --radius-xl: 22px;
       --radius-lg: 18px;
       --radius-md: 14px;
-      --shadow-soft: 0 14px 35px rgba(15, 28, 75, 0.12);
+      --shadow-soft: 0 18px 40px rgba(21, 28, 75, 0.15);
+      --shadow-light: 0 12px 26px rgba(21, 28, 75, 0.10);
       --max-width: 1120px;
-      --transition-fast: 0.18s ease;
+      --transition-fast: 0.18s ease-out;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: "Poppins", "Noto Sans Bengali", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #e3ecff 0, #f5f7fc 42%, #eef2ff 100%);
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #e4ebff 0, transparent 45%),
+        radial-gradient(circle at bottom right, #e2f4ff 0, transparent 45%),
+        var(--bg);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     img {
       max-width: 100%;
       display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .wrapper {
@@ -62,10 +69,10 @@
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(245, 247, 252, 0.85);
+      z-index: 50;
+      background: rgba(244, 246, 251, 0.92);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(204, 214, 240, 0.8);
+      border-bottom: 1px solid rgba(210, 219, 244, 0.9);
     }
 
     .nav-inner {
@@ -78,30 +85,30 @@
       gap: 14px;
     }
 
-    .nav-brand {
+    .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
     .nav-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       overflow: hidden;
       background: #fff;
-      border: 2px solid rgba(30, 136, 255, 0.35);
-      box-shadow: 0 0 0 4px rgba(30, 136, 255, 0.12);
+      border: 1px solid rgba(19, 57, 151, 0.35);
+      box-shadow: 0 0 0 4px rgba(30, 136, 255, 0.10);
     }
 
-    .brand-text-main {
+    .nav-brand-text-main {
       font-weight: 600;
       font-size: 18px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .brand-text-sub {
+    .nav-brand-text-sub {
       font-size: 11px;
       color: var(--text-soft);
     }
@@ -121,15 +128,15 @@
     }
 
     .nav-links a:hover {
-      border-color: rgba(30, 136, 255, 0.35);
-      background: rgba(30, 136, 255, 0.04);
-      color: var(--accent);
+      border-color: rgba(30, 136, 255, 0.4);
+      background: rgba(30, 136, 255, 0.06);
+      color: var(--accent-strong);
     }
 
     .nav-cta {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -147,36 +154,46 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #63b2ff);
+      background: linear-gradient(135deg, var(--accent-strong), #63b2ff);
       color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 10px 24px rgba(30, 136, 255, 0.35);
+      box-shadow: 0 12px 26px rgba(30, 136, 255, 0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(30, 136, 255, 0.5);
+      box-shadow: 0 16px 34px rgba(30, 136, 255, 0.52);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border-color: rgba(30, 136, 255, 0.45);
+      color: var(--accent-strong);
+    }
+
+    .btn-outline:hover {
+      background: rgba(30, 136, 255, 0.06);
     }
 
     .btn-ghost {
       background: #ffffff;
-      color: var(--accent);
-      border-color: rgba(30, 136, 255, 0.4);
+      border-color: rgba(207, 214, 236, 0.9);
+      color: var(--text-soft);
     }
 
     .btn-ghost:hover {
-      background: rgba(30, 136, 255, 0.06);
+      border-color: rgba(30, 136, 255, 0.35);
+      color: var(--accent-strong);
     }
 
     /* HERO */
 
     .hero {
-      padding: 34px 0 42px;
+      padding: 36px 0 46px;
     }
 
-    .hero-inner {
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
       gap: 32px;
       align-items: center;
     }
@@ -188,25 +205,28 @@
       padding: 4px 11px;
       border-radius: 999px;
       background: #ffffff;
-      border: 1px solid rgba(189, 203, 234, 0.9);
+      border: 1px solid rgba(197, 209, 238, 0.95);
       font-size: 11px;
       color: var(--text-soft);
       margin-bottom: 10px;
+      box-shadow: 0 6px 10px rgba(13, 31, 79, 0.05);
+      animation: fade-in 0.7s ease-out both;
     }
 
     .pill span {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: radial-gradient(circle, #00e5ff, #1e88ff);
-      box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.25);
+      background: radial-gradient(circle, #16e0ff, #1e88ff);
+      box-shadow: 0 0 0 4px rgba(22, 224, 255, 0.3);
     }
 
     .hero-title {
       font-size: clamp(30px, 4.1vw, 40px);
       font-weight: 700;
       letter-spacing: 0.02em;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      animation: slide-up 0.7s ease-out 0.05s both;
     }
 
     .hero-title span {
@@ -220,19 +240,22 @@
       font-weight: 500;
       color: var(--accent-orange);
       margin-bottom: 10px;
+      animation: slide-up 0.7s ease-out 0.12s both;
     }
 
     .hero-sub {
       font-size: 14px;
       color: var(--text-soft);
       margin-bottom: 18px;
+      animation: slide-up 0.7s ease-out 0.18s both;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
+      animation: slide-up 0.7s ease-out 0.24s both;
     }
 
     .hero-meta {
@@ -241,26 +264,47 @@
       gap: 10px;
       font-size: 11px;
       color: var(--text-soft);
+      animation: slide-up 0.7s ease-out 0.3s both;
     }
 
     .hero-meta span {
       padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(205, 214, 236, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(209, 216, 238, 0.95);
     }
 
-    /* HERO GALLERY CARD */
+    /* HERO HIGHLIGHT CARD */
 
-    .hero-gallery {
+    .hero-showcase {
       background: var(--bg-soft);
-      border-radius: var(--radius-lg);
-      padding: 16px;
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 15px;
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      animation: fade-in 0.7s ease-out 0.15s both;
     }
 
-    .hero-gallery-header {
+    .hero-showcase::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(30, 136, 255, 0.25) 0, transparent 52%),
+        radial-gradient(circle at 100% 100%, rgba(255, 152, 0, 0.24) 0, transparent 52%);
+      opacity: 0.55;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .hero-showcase-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-showcase-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -268,9 +312,18 @@
       font-size: 13px;
     }
 
-    .hero-gallery-sub {
+    .hero-showcase-sub {
       font-size: 11px;
       color: var(--text-soft);
+    }
+
+    .pill-mini {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(200, 210, 237, 0.95);
+      font-size: 11px;
+      color: var(--accent-strong);
     }
 
     .hero-gallery-row {
@@ -284,8 +337,9 @@
     .hero-photo-side {
       position: relative;
       overflow: hidden;
-      border-radius: 14px;
+      border-radius: 16px;
       background: #000;
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .hero-photo-main {
@@ -302,34 +356,33 @@
       height: 100%;
       object-fit: cover;
       transform: scale(1.03);
+      transition: transform 0.5s ease-out;
+    }
+
+    .hero-photo-main:hover img,
+    .hero-photo-side:hover img {
+      transform: scale(1.06);
     }
 
     .chip {
       position: absolute;
       left: 10px;
       bottom: 10px;
-      font-size: 11px;
       padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
-      color: #222;
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #182033;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
     }
 
-    .hero-gallery-footer {
+    .hero-showcase-footer {
       display: flex;
       justify-content: space-between;
       font-size: 11px;
       color: var(--text-soft);
-      margin-top: 4px;
-    }
-
-    .pill-mini {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      font-size: 11px;
-      color: var(--accent);
+      margin-top: 2px;
     }
 
     /* GENERIC SECTION */
@@ -341,7 +394,7 @@
     .section-label {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       color: var(--accent-orange);
       margin-bottom: 4px;
     }
@@ -361,27 +414,38 @@
     .card {
       margin-top: 16px;
       padding: 18px 18px 16px;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       background: var(--bg-soft);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
     }
 
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ABOUT */
+
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 20px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.0fr);
+      gap: 22px;
     }
 
-    .about-en {
+    .about-text {
       font-size: 13px;
       color: var(--text-soft);
     }
 
-    .about-bn {
-      font-family: "Noto Sans Bengali", system-ui, sans-serif;
-      font-size: 13px;
-      color: var(--text-soft);
+    .about-text p + p {
+      margin-top: 8px;
     }
 
     .about-tags {
@@ -394,10 +458,32 @@
     .about-tag {
       padding: 4px 10px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
       font-size: 11px;
-      border: 1px solid rgba(30, 136, 255, 0.4);
+      background: var(--accent-soft);
+      border: 1px solid rgba(30, 136, 255, 0.45);
+      color: var(--accent-strong);
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .about-stat {
+      padding: 10px 10px 8px;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft-2);
+      border: 1px dashed rgba(151, 168, 218, 0.9);
+    }
+
+    .about-stat strong {
+      display: block;
+      font-size: 14px;
+      color: var(--accent-strong);
+      margin-bottom: 2px;
     }
 
     /* HIGHLIGHTS */
@@ -411,14 +497,14 @@
 
     .highlight-card {
       background: var(--bg-soft);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       padding: 10px 10px 12px;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 10px 24px rgba(15, 28, 75, 0.08);
+      box-shadow: var(--shadow-light);
     }
 
     .highlight-img {
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       margin-bottom: 8px;
     }
@@ -432,15 +518,61 @@
     .highlight-text {
       font-size: 12px;
       color: var(--text-soft);
-      font-family: "Noto Sans Bengali", system-ui, sans-serif;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .service-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-light);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .service-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .service-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .service-tagline {
+      font-size: 11px;
+      color: var(--accent-strong);
+      margin-top: 2px;
     }
 
     /* FOUNDER */
 
     .founder-card {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
-      gap: 20px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
+      gap: 22px;
       align-items: center;
     }
 
@@ -450,7 +582,7 @@
     }
 
     .founder-photo {
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
@@ -459,8 +591,8 @@
     }
 
     .founder-meta {
-      margin-top: 10px;
       text-align: center;
+      margin-top: 10px;
     }
 
     .founder-name {
@@ -474,21 +606,32 @@
       margin-top: 2px;
     }
 
+    .founder-location {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 3px;
+    }
+
     .founder-socials {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      margin-top: 8px;
-      flex-wrap: wrap;
+      margin-top: 9px;
     }
 
     .social-pill {
       font-size: 12px;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(30, 136, 255, 0.35);
+      border: 1px solid rgba(30, 136, 255, 0.45);
       background: #ffffff;
-      color: var(--accent);
+      color: var(--accent-strong);
+      transition: var(--transition-fast);
+    }
+
+    .social-pill:hover {
+      background: rgba(30, 136, 255, 0.06);
     }
 
     .founder-text {
@@ -500,19 +643,18 @@
       margin-top: 8px;
     }
 
-    /* CONTACT + FOOTER */
+    /* CONTACT */
 
     .contact-card {
       margin-top: 18px;
       padding: 16px 18px 14px;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-xl);
       background: var(--bg-soft);
       border: 1px solid var(--border-soft);
-      box-shadow: 0 10px 24px rgba(15, 28, 75, 0.08);
+      box-shadow: var(--shadow-soft);
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
       gap: 18px;
-      align-items: center;
     }
 
     .contact-row {
@@ -536,44 +678,70 @@
       margin-top: 8px;
     }
 
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
     footer {
-      margin-top: 30px;
+      margin-top: 32px;
       padding-top: 16px;
-      border-top: 1px solid rgba(206, 214, 238, 0.9);
+      border-top: 1px solid rgba(205, 214, 239, 0.95);
       font-size: 11px;
       color: var(--text-soft);
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 8px;
     }
 
     .footer-links {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
-      .hero-inner {
+      .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-gallery {
+      .hero-showcase {
         order: -1;
       }
 
       .about-grid,
       .highlight-grid,
+      .services-grid,
       .founder-card,
       .contact-card {
         grid-template-columns: 1fr;
       }
 
       .founder-photo-wrap {
-        max-width: 220px;
+        max-width: 230px;
       }
     }
 
@@ -600,254 +768,301 @@
       }
 
       .hero {
-        padding-top: 28px;
+        padding-top: 30px;
       }
     }
   </style>
 </head>
 <body>
-
   <!-- NAVBAR -->
   <header class="nav">
     <div class="nav-inner">
-      <a href="#top" class="nav-brand">
-        <div class="nav-logo">
-          <!-- এখানে নিজের logo image লিঙ্ক বসাও -->
-          <img src="https://photos.app.goo.gl/fKSYBDLHN5snruc7A" alt="Alokchitra Logo" />
-        </div>
+      <div class="nav-left">
+        <a href="#top" class="nav-logo">
+          <!-- Brand logo -->
+          <img src="http://alokchitra.online/wp-content/uploads/2025/06/alokchitra-logo-light-2.png" alt="Alokchitra Logo" />
+        </a>
         <div>
-          <div class="brand-text-main">ALOKCHITRA</div>
-          <div class="brand-text-sub">The World Through the Camera’s Eye</div>
+          <div class="nav-brand-text-main">ALOKCHITRA</div>
+          <div class="nav-brand-text-sub">The World Through the Camera’s Eye</div>
         </div>
-      </a>
+      </div>
 
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#highlights">Highlights</a>
+        <a href="#services">What We Do</a>
         <a href="#founder">Founder</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav-cta">
-        <a href="https://www.facebook.com/share/1B2c57zZFU/" target="_blank" class="btn btn-ghost">Facebook Page</a>
-        <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="btn btn-primary">Join Group</a>
+        <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="btn btn-outline">Join Group</a>
+        <a href="https://www.facebook.com/share/1B2c57zZFU/" target="_blank" class="btn btn-primary">Facebook Page</a>
       </div>
     </div>
   </header>
 
   <main class="wrapper" id="top">
-
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-inner">
+      <div class="hero-grid">
         <div>
           <div class="pill">
             <span></span>
-            Public Photography Community · Dhaka, Bangladesh
+            Public photography community · Based in Bangladesh
           </div>
           <h1 class="hero-title">
-            আলোকচিত্র – <span>Where Light Paints Memories</span>
+            ALOKCHITRA — <span>Where Light Becomes Story</span>
           </h1>
-          <p class="hero-tagline">“The World Through the Camera’s Eye”</p>
+          <p class="hero-tagline">
+            A curated space for thoughtful photography, meaningful visuals and real community.
+          </p>
           <p class="hero-sub">
-            A creative home for photographers and nature lovers who want to tell real stories through light, color and moments.
-            Share your work, learn together and grow one frame at a time.
+            Alokchitra brings together photographers who care about light, detail and storytelling.  
+            Share your best work, explore new perspectives and grow your visual voice with a community that actually pays attention.
           </p>
 
           <div class="hero-actions">
-            <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="btn btn-primary">
-              Join Facebook Group
-            </a>
-            <a href="https://t.me/Alokchitra" target="_blank" class="btn btn-ghost">
-              Telegram Community
-            </a>
+            <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="btn btn-primary">Join Facebook Group</a>
+            <a href="https://t.me/Alokchitra" target="_blank" class="btn btn-outline">Telegram Community</a>
+            <a href="https://alokchitra.online" target="_blank" class="btn btn-ghost">Visit Main Site</a>
           </div>
 
           <div class="hero-meta">
-            <span>📍 Located in Dhaka, Bangladesh</span>
-            <span>📅 Community since June 27, 2023</span>
-            <span>📸 Nature · Landscape · Storytelling</span>
+            <span>📅 Active since 2023</span>
+            <span>📸 Weekly & monthly features</span>
+            <span>🤝 Supportive, critique-friendly space</span>
           </div>
         </div>
 
-        <aside class="hero-gallery">
-          <div class="hero-gallery-header">
-            <div>Community Highlights</div>
-            <div class="hero-gallery-sub">Weekly · Theme · Monthly</div>
-          </div>
-
-          <div class="hero-gallery-row">
-            <div class="hero-photo-main">
-              <!-- এখানে Week Best ছবির লিঙ্ক দাও -->
-              <img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Week Best" />
-              <div class="chip">Week Best</div>
+        <aside class="hero-showcase">
+          <div class="hero-showcase-inner">
+            <div class="hero-showcase-header">
+              <div>Community Showcase</div>
+              <div class="hero-showcase-sub">Curated highlights from Alokchitra members</div>
             </div>
-            <div class="hero-photo-side">
-              <!-- এখানে Theme / Monthly Photo লিঙ্ক দাও -->
-              <img src="https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Theme Highlight" />
-              <div class="chip">Theme Highlight</div>
-            </div>
-          </div>
 
-          <div class="hero-gallery-footer">
-            <span class="pill-mini">Photo of the Day · Photo of the Week</span>
-            <span style="font-size:11px;">Friendly critique · Positive vibes</span>
+            <div class="hero-gallery-row">
+              <div class="hero-photo-main">
+                <!-- Replace with your real Week Best image -->
+                <img src="https://images.pexels.com/photos/247478/pexels-photo-247478.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Week Best Photo" />
+                <div class="chip">Week Best</div>
+              </div>
+              <div class="hero-photo-side">
+                <!-- Replace with your real Theme / Monthly image -->
+                <img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Theme Highlight" />
+                <div class="chip">Theme Highlight</div>
+              </div>
+            </div>
+
+            <div class="hero-showcase-footer">
+              <span class="pill-mini">Photo of the Day · Week Best · Theme</span>
+              <span>Simple structure, serious work.</span>
+            </div>
           </div>
         </aside>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about">
+    <section id="about" class="fade-section">
       <div class="section-label">About</div>
       <h2 class="section-title">About Alokchitra</h2>
       <p class="section-sub">
-        A photography community that believes every frame is a story and every photographer deserves a kind, creative space to grow.
+        Alokchitra is a photography-led community and platform focused on powerful visual storytelling, clean presentation and collaborative growth.
       </p>
 
       <div class="card about-grid">
-        <div class="about-en">
+        <div class="about-text">
           <p>
-            Alokchitra is more than just a photo-sharing group. It is a growing family of dreamers, observers
-            and storytellers who explore the beauty of the world through their cameras.
-            Here, a photograph is never “just a picture” – it is a slice of time, emotion and memory.
+            The idea behind Alokchitra is simple: create a focused place where photographs are treated as crafted work, not just quick posts.  
+            Every frame is considered, discussed and appreciated on its own merit.
           </p>
-          <p style="margin-top:8px;">
-            Whether you’re a beginner or an experienced photographer, you can share your work,
-            join contests, receive feedback and learn from others in a safe and supportive atmosphere.
+          <p>
+            From nature and street to documentary and experimental work, the community encourages photographers to explore different ways of seeing.
+            Regular features, contests and discussions help members refine how they shoot, select and present their images.
           </p>
           <div class="about-tags">
-            <span class="about-tag">Inspiring Competitions</span>
-            <span class="about-tag">Skill-building Together</span>
-            <span class="about-tag">Creative Showcases</span>
-            <span class="about-tag">Supportive Community</span>
+            <span class="about-tag">Curated community</span>
+            <span class="about-tag">Story-first visuals</span>
+            <span class="about-tag">Feedback culture</span>
+            <span class="about-tag">Clean presentation</span>
           </div>
         </div>
 
-        <div class="about-bn">
-          <p>
-            আলোকচিত্র – Alokchitra একটি সৃজনশীল প্ল্যাটফর্ম, যেখানে প্রকৃতিপ্রেমী ও ফটোগ্রাফি অনুরাগীরা এক হয়ে যায়।
-            ক্যামেরার লেন্স দিয়ে আমরা পৃথিবীর সৌন্দর্যকে নতুনভাবে আবিষ্কার করার চেষ্টা করি।
-          </p>
-          <p style="margin-top:8px;">
-            এই কমিউনিটিতে আপনি নিজের তোলা প্রিয় ছবি শেয়ার করতে পারবেন, অন্যদের কাজ দেখে অনুপ্রাণিত হতে পারবেন
-            এবং আলোচনা, পরামর্শ ও বিভিন্ন প্রতিযোগিতার মাধ্যমে নিজের দক্ষতাকে আরও সুন্দরভাবে গড়ে তুলতে পারবেন।
-          </p>
+        <div class="about-stats-grid">
+          <div class="about-stat">
+            <strong>Community-led</strong>
+            No noise, no spam — a photography-first environment designed for people who actually care about images.
+          </div>
+          <div class="about-stat">
+            <strong>Feature-driven</strong>
+            Rotating segments such as Week Best, Theme and Monthly Photo keep the feed dynamic and goal-oriented.
+          </div>
+          <div class="about-stat">
+            <strong>Learning focus</strong>
+            Constructive conversation around framing, light, color and intent helps members grow faster.
+          </div>
+          <div class="about-stat">
+            <strong>Multi-platform</strong>
+            Facebook, Telegram and web come together to keep the community accessible and active.
+          </div>
         </div>
       </div>
     </section>
 
     <!-- HIGHLIGHTS -->
-    <section id="highlights">
+    <section id="highlights" class="fade-section">
       <div class="section-label">Highlights</div>
-      <h2 class="section-title">Weekly, Theme & Monthly Features</h2>
+      <h2 class="section-title">Signature Community Segments</h2>
       <p class="section-sub">
-        Signature segments that keep the community active and help photographers experiment with new ideas.
+        A simple structure that encourages photographers to shoot regularly, experiment with ideas and refine their best work.
       </p>
 
       <div class="highlight-grid">
         <article class="highlight-card">
           <div class="highlight-img">
-            <img src="https://images.pexels.com/photos/247478/pexels-photo-247478.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Week Best" />
+            <img src="https://images.pexels.com/photos/462162/pexels-photo-462162.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Week Best" />
           </div>
           <h3 class="highlight-title">Week Best</h3>
           <p class="highlight-text">
-            প্রতি সপ্তাহে কমিউনিটি থেকে বাছাই করা সেরা একটি ছবি – যেটা থেকে সবাই শিখতে পারে এবং অনুপ্রেরণা পায়।
+            A weekly pick from the community — one frame that stands out for light, timing or story.  
+            A quick way to see what “good” looks like in the group.
           </p>
         </article>
 
         <article class="highlight-card">
           <div class="highlight-img">
-            <img src="https://images.pexels.com/photos/462162/pexels-photo-462162.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Theme Photo" />
+            <img src="https://images.pexels.com/photos/2080963/pexels-photo-2080963.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Theme Challenge" />
           </div>
           <h3 class="highlight-title">Theme Challenge</h3>
           <p class="highlight-text">
-            নির্দিষ্ট থিম ধরে (যেমন: রেইন, সিটি লাইট, সিলুয়েট) ছবি তোলা – যেন নতুন দৃষ্টিতে একই পৃথিবীকে দেখা যায়।
+            Rotating themes (rain, reflections, silhouettes, city nights and more) push members to think in series, not just single shots.
           </p>
         </article>
 
         <article class="highlight-card">
           <div class="highlight-img">
-            <img src="https://images.pexels.com/photos/2080963/pexels-photo-2080963.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Monthly Photo" />
+            <img src="https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Monthly Photo" />
           </div>
           <h3 class="highlight-title">Monthly Photo</h3>
           <p class="highlight-text">
-            মাসব্যাপী জমা পড়া ছবির মধ্য থেকে একটি বিশেষ নির্বাচন – যা পুরো মাসের অনুভূতিকে প্রতিনিধিত্ব করে।
+            A single photograph that sums up the month — selected for consistency, intent and presentation across the photographer’s work.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES / WHAT WE DO -->
+    <section id="services" class="fade-section">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">How Alokchitra Works in Practice</h2>
+      <p class="section-sub">
+        Not just a feed — Alokchitra runs as a structured photography environment with clear formats and long-term potential.
+      </p>
+
+      <div class="card services-grid">
+        <article class="service-card">
+          <div class="service-icon">🏆</div>
+          <div class="service-title">Curated Competitions</div>
+          <div class="service-tagline">Photo of the Day · Week Best · Monthly Photo</div>
+          <p>
+            Focused contests that reward strong seeing, not just gear. Consistent participation helps members build a serious body of work.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">📚</div>
+          <div class="service-title">Learning & Critique</div>
+          <div class="service-tagline">Frame, light, color, intent</div>
+          <p>
+            Discussions, breakdowns and gentle critique aimed at improvement, not flexing.  
+            The goal is to help photographers think and edit like editors, not just shooters.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">📰</div>
+          <div class="service-title">Editorial & Magazine Direction</div>
+          <div class="service-tagline">From posts to publication-ready work</div>
+          <p>
+            The structure of Alokchitra is designed so standout work can evolve into galleries, features and future editorial projects.
           </p>
         </article>
       </div>
     </section>
 
     <!-- FOUNDER -->
-    <section id="founder">
+    <section id="founder" class="fade-section">
       <div class="section-label">Founder</div>
-      <h2 class="section-title">Founder & Vision</h2>
+      <h2 class="section-title">Founder & Direction</h2>
       <p class="section-sub">
-        The heart behind Alokchitra – building a kind, modern and creative photography space for everyone.
+        The person behind the structure, tone and long-term vision of Alokchitra.
       </p>
 
       <div class="card founder-card">
         <div class="founder-photo-wrap">
           <div class="founder-photo">
-            <!-- এখানে Founder Atik Ahmed এর ছবি লিঙ্ক বসালাম -->
-            <img src="https://photos.app.goo.gl/4jHGusbJVfDWAdFdA" alt="Atik Ahmed" />
+            <!-- Founder photo -->
+            <img src="http://alokchitra.online/wp-content/uploads/2025/07/Picsart_25-07-27_15-21-00-070-scaled-e1753800727904.jpg" alt="Atik Ahmed" />
           </div>
           <div class="founder-meta">
             <div class="founder-name">Atik Ahmed</div>
             <div class="founder-role">Founder · Alokchitra</div>
+            <div class="founder-location">Photography & visual design · Bangladesh</div>
             <div class="founder-socials">
-              <a href="https://www.facebook.com/share/1B2c57zZFU/" target="_blank" class="social-pill">Facebook Page</a>
-              <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="social-pill">Facebook Group</a>
-              <a href="https://t.me/Alokchitra" target="_blank" class="social-pill">Telegram</a>
+              <a href="https://www.facebook.com/share/1D1vxbj9D1/" target="_blank" class="social-pill">Facebook</a>
+              <a href="https://www.instagram.com/atik_ahmed_paradox?igsh=MXJmdGltcnFpd2dqdA==" target="_blank" class="social-pill">Instagram</a>
+              <a href="https://www.threads.com/@atik_ahmed_paradox" target="_blank" class="social-pill">Threads</a>
+              <a href="https://wa.me/qr/6OOV6Z4UJKLBN1" target="_blank" class="social-pill">WhatsApp</a>
+              <a href="https://www.fiverr.com/sellers/atik_ahmmad/" target="_blank" class="social-pill">Fiverr</a>
             </div>
           </div>
         </div>
 
         <div class="founder-text">
           <p>
-            Atik Ahmed started Alokchitra with a simple idea: create a photography community where people feel safe to share,
-            learn and grow — without ego or negativity. The focus is on honest stories, natural frames and respectful feedback.
+            Atik Ahmed is the Founder and Creative Lead of Alokchitra. His focus is on building a photography environment that feels deliberate, organised and future-ready — closer to a visual lab than a casual feed.
           </p>
           <p>
-            তাঁর লক্ষ্য খুব পরিষ্কার — বাংলাদেশের নতুন ও পুরনো ফটোগ্রাফারদের জন্য এমন একটি প্ল্যাটফর্ম তৈরি করা,
-            যেখানে শিক্ষার পাশাপাশি থাকবে বন্ধুত্ব, প্রেরণা আর একসাথে বেড়ে ওঠার সুযোগ।
+            With experience across photography, digital design and online platforms, he shapes Alokchitra as a place where serious hobbyists and emerging professionals can present their work with clarity, get real feedback and slowly develop a recognisable visual identity.
           </p>
           <p>
-            Through Alokchitra, Atik hopes every member learns to see differently, feel deeply and preserve everyday moments
-            as timeless memories.
+            The long-term direction is simple: refine the quality of work in the community, maintain a respectful culture and open doors for editorial, commercial and collaborative opportunities built on strong images.
           </p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="fade-section">
       <div class="section-label">Contact</div>
-      <h2 class="section-title">Stay Connected</h2>
+      <h2 class="section-title">Contact & Platforms</h2>
       <p class="section-sub">
-        For collaboration, contest ideas or feedback about the community, feel free to reach out.
+        For collaboration, partnerships, feature ideas or community questions, use any of the channels below.
       </p>
 
       <div class="contact-card">
         <div>
           <div class="contact-row">
-            <span class="contact-tag">📧 Email: admin@alokchitra.online</span>
-            <span class="contact-tag">📍 Dhaka, Bangladesh</span>
+            <span class="contact-tag">📧 Email: atik.magicbox@gmail.com</span>
+            <span class="contact-tag">🌍 Location: Bangladesh</span>
           </div>
           <p class="contact-note">
-            Sponsorship, special projects, photo features অথবা community নিয়ে কোনো পরামর্শ থাকলে ইমেইল বা Facebook Page-এ মেসেজ করতে পারো।
+            Email is the best way to reach the founder for structured conversations, collaboration proposals and long-form ideas.
           </p>
         </div>
 
         <div>
-          <div class="contact-row" style="margin-bottom:8px;">
-            <a href="https://www.facebook.com/share/1B2c57zZFU/" target="_blank" class="contact-tag">Facebook Page</a>
-            <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="contact-tag">Facebook Group</a>
-            <a href="https://t.me/Alokchitra" target="_blank" class="contact-tag">Telegram</a>
+          <div class="contact-buttons">
+            <a href="https://www.facebook.com/share/1B2c57zZFU/" target="_blank" class="btn btn-outline">Facebook Page</a>
+            <a href="https://www.facebook.com/share/g/1W8Gnkm5ec/" target="_blank" class="btn btn-ghost">Facebook Group</a>
+            <a href="https://t.me/Alokchitra" target="_blank" class="btn btn-ghost">Telegram</a>
+            <a href="https://alokchitra.online" target="_blank" class="btn btn-ghost">Main Website</a>
           </div>
           <p class="contact-note">
-            Facebook Group is public and visible — anyone can find it and see the posts,
-            কিন্তু community vibe clean রাখার জন্য সমস্ত কনটেন্ট manually review করা হয়।
+            Use the group for community activity, the page for announcements, Telegram for quick updates and the main site for structured information and future projects.
           </p>
         </div>
       </div>
@@ -861,5 +1076,24 @@
       </div>
     </footer>
   </main>
+
+  <!-- Small script for scroll animation -->
+  <script>
+    const sections = document.querySelectorAll('.fade-section');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
 </body>
 </html>
