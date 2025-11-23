@@ -95,23 +95,32 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:16px;
       background:rgba(246,248,255,.94);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(180,192,230,.9);
       z-index:50;
+      flex-wrap:nowrap;
     }
 
     .nav-left{
-      display:flex;align-items:center;gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-shrink:0;
     }
+
     .nav-logo{
-      width:40px;height:40px;
+      width:40px;
+      height:40px;
       border-radius:14px;
       overflow:hidden;
-      background:#ffffff;
-      box-shadow:0 8px 18px rgba(0,0,0,.16);
-      display:flex;align-items:center;justify-content:center;
+      /* background + shadow removed so it stands clean */
+      background:transparent;
+      box-shadow:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .nav-logo img{
       width:100%;height:100%;object-fit:contain;
@@ -119,12 +128,15 @@
 
     nav{
       display:flex;
-      gap:16px;
+      align-items:center;
+      gap:14px;
       font-size:13px;
       color:var(--soft);
       overflow-x:auto;
       white-space:nowrap;
       padding-bottom:2px;
+      margin-left:auto;
+      flex-wrap:nowrap;
     }
     nav::-webkit-scrollbar{display:none;}
 
@@ -142,10 +154,13 @@
 
     @media(max-width:720px){
       header{
-        padding-inline:16px;
+        padding-inline:14px;
+        gap:10px;
       }
-      .nav-left{flex-shrink:0;}
-      nav{flex:1;justify-content:flex-end;}
+      nav{
+        gap:10px;
+        font-size:12px;
+      }
     }
 
     /* HERO SLIDER */
@@ -997,5 +1012,3 @@
   </script>
 </body>
 </html>
-
-
