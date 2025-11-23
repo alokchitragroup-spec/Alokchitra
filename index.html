@@ -9,15 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
 --bg:#F6F8FF;
---glass:rgba(255,255,255,0.55);
---blur:14px;
 --accent:#1E88FF;
 --text:#1A1F36;
---soft:#556280;
+--soft:#607096;
+--glass:rgba(255,255,255,0.55);
+--blur:18px;
 --radius:22px;
---shadow:0px 18px 40px rgba(0,0,0,0.10);
+--shadow:0px 18px 40px rgba(0,0,0,0.1);
+--slideHeight:90vh;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins";}
@@ -26,123 +27,137 @@ body{background:var(--bg);color:var(--text);overflow-x:hidden}
 
 /* Preloader */
 #preloader{
-position:fixed;inset:0;background:#fff;display:flex;
-align-items:center;justify-content:center;
-z-index:99999;
-animation:fadeOut 1s ease 2.2s forwards;
+position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;
+z-index:99999;animation:fadeOut 1.3s ease 2.3s forwards;
 }
-#preloader img{
-width:80px;animation:spin 2s linear infinite;
-}
+#preloader img{width:100px;animation:spin 2s linear infinite;}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes fadeOut{to{opacity:0;visibility:hidden}}
 
-/* Navigation */
+/* NAVBAR */
 header{
-position:sticky;top:0;background:rgba(255,255,255,0.55);
-backdrop-filter:blur(16px);
-padding:14px 10vw;
-display:flex;justify-content:space-between;
-border-bottom:1px solid rgba(0,0,0,0.07);
-z-index:100;
+position:fixed;top:0;width:100%;z-index:99;
+backdrop-filter:blur(14px);background:rgba(255,255,255,0.55);
+border-bottom:1px solid rgba(0,0,0,0.06);
+padding:14px 10vw;display:flex;justify-content:space-between;align-items:center;
 }
+.logo{font-weight:700;font-size:20px;letter-spacing:1px;}
 nav a{
-margin-left:20px;text-decoration:none;color:var(--soft);
-font-size:14px;font-weight:500;transition:.2s
+margin-left:18px;font-size:14px;color:var(--soft);
+text-decoration:none;transition:.2s;font-weight:500;
 }
 nav a:hover{color:var(--accent)}
 
-/* Hero */
-.hero{
-padding:80px 10vw;display:grid;
-grid-template-columns:1.2fr 1fr;gap:40px;
-align-items:center;
+/* HERO SLIDER */
+.hero-slider{position:relative;height:var(--slideHeight);overflow:hidden;margin-top:70px}
+.slide{
+position:absolute;inset:0;width:100%;height:100%;
+background-size:cover;background-position:center;
+opacity:0;transition:1s ease-in-out;
 }
-.hero h1{
-font-size:45px;font-weight:700;
-}
-.hero span{color:var(--accent);}
-.hero p{font-size:15px;color:var(--soft);margin:12px 0;}
-.btn{
-background:var(--accent);border:none;
-padding:10px 22px;border-radius:999px;
-color:#fff;cursor:pointer;margin-right:10px;
-}
-.hero-img{
-border-radius:var(--radius);overflow:hidden;
-box-shadow:var(--shadow);
-}
-.hero-img img{width:100%;height:100%;object-fit:cover;}
+.slide.active{opacity:1;}
 
-/* Sections */
-section{padding:60px 10vw;}
-h2{font-weight:600;font-size:28px;margin-bottom:8px}
-.s-desc{font-size:14px;color:var(--soft);margin-bottom:20px;}
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.6));
+backdrop-filter:blur(4px);
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+color:#fff;padding:0 20px;
+}
+.hero-overlay h1{font-size:42px;font-weight:700;margin-bottom:10px;}
+.hero-overlay p{font-size:16px;max-width:620px;color:#e7edff;}
+.hero-icons{margin-top:18px;display:flex;gap:12px;}
+.hero-icons i{
+width:42px;height:42px;background:#fff;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+color:var(--accent);font-size:18px;cursor:pointer;
+transition:0.25s;
+}
+.hero-icons i:hover{background:var(--accent);color:#fff;transform:translateY(-4px);}
+
+.arrows{
+position:absolute;top:50%;width:100%;display:flex;
+justify-content:space-between;padding:0 25px;color:#fff;
+font-size:38px;cursor:pointer;
+}
+
+/* SECTIONS */
+section{padding:80px 10vw;animation:show .9s ease forwards;opacity:0;transform:translateY(40px);}
+@keyframes show{to{opacity:1;transform:translateY(0)}}
+h2{font-size:28px;font-weight:700;margin-bottom:12px;}
+.sub{font-size:15px;color:var(--soft);margin-bottom:22px;}
 
 .card{
 background:var(--glass);backdrop-filter:blur(var(--blur));
-border-radius:var(--radius);padding:25px;
-border:1px solid rgba(255,255,255,0.30);
+padding:28px;border-radius:var(--radius);
+border:1px solid rgba(255,255,255,0.45);
 box-shadow:var(--shadow);
 }
 
-/* Brand */
-.brand-box{
-display:flex;gap:40px;align-items:center;
+/* BRAND */
+.brand-wrap{
+display:grid;grid-template-columns:0.6fr 1fr;gap:40px;align-items:center;
 }
-.brand-box img{
-width:120px;border-radius:20px;box-shadow:var(--shadow);
-}
-
-/* Founder */
-.founder{
-display:grid;grid-template-columns:0.7fr 1fr;gap:35px;
-align-items:center;
-}
-.founder img{
-width:100%;border-radius:var(--radius);box-shadow:var(--shadow);
+.brand-wrap img{
+width:170px;border-radius:24px;box-shadow:var(--shadow);
 }
 
-/* Programs */
-.programs{
-display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;
+/* FEATURES */
+.features{
+display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
 }
-.program{
-padding:20px;border-radius:var(--radius);
-background:var(--glass);
-backdrop-filter:blur(var(--blur));
-box-shadow:var(--shadow);
+.feature-card{
+background:var(--glass);border:1px solid rgba(255,255,255,0.45);
+backdrop-filter:blur(calc(var(--blur) + 6px));
+padding:24px;border-radius:var(--radius);
+text-align:center;transition:.3s;
 }
-.program h3{font-size:16px;margin-bottom:8px;color:var(--accent)}
-.week-photo{
-width:100%;height:320px;border-radius:var(--radius);
-object-fit:cover;box-shadow:var(--shadow);
+.feature-card:hover{transform:translateY(-6px);}
+.feature-icon{
+font-size:42px;margin-bottom:10px;color:var(--accent);
 }
 
-/* Contact */
-.contact a{
-display:inline-block;margin:10px 12px 0 0;
-padding:10px 20px;border-radius:999px;
-background:#fff;border:1px solid rgba(0,0,0,0.07);
-font-size:14px;color:var(--accent);text-decoration:none;
-transition:.2s;
+/* FOUNDER */
+.founder-box{
+display:flex;gap:35px;align-items:center;
+flex-wrap:wrap;
 }
-.contact a:hover{background:var(--accent);color:#fff}
+.founder-box img{
+width:260px;border-radius:26px;box-shadow:var(--shadow);
+}
+.founder-social{margin-top:15px;display:flex;gap:10px;}
+.founder-social i{
+font-size:20px;width:40px;height:40px;border-radius:50%;
+background:#fff;color:var(--accent);
+display:flex;align-items:center;justify-content:center;
+cursor:pointer;transition:.25s;
+}
+.founder-social i:hover{background:var(--accent);color:#fff;transform:translateY(-4px);}
 
-/* Footer */
+/* CONTACT */
+.contact-btns a{
+display:inline-block;background:#fff;color:var(--accent);
+border:1px solid rgba(0,0,0,0.08);
+border-radius:100px;padding:12px 24px;text-decoration:none;
+font-size:15px;font-weight:500;margin:8px 10px 0 0;
+transition:.25s;
+}
+.contact-btns a:hover{background:var(--accent);color:#fff;}
+
+/* FOOTER */
 footer{
-text-align:center;padding:22px;background:#fff;
-font-size:12px;color:var(--soft);
-border-top:1px solid rgba(0,0,0,0.07);
+text-align:center;padding:25px;background:#fff;
+font-size:13px;color:var(--soft);
+border-top:1px solid rgba(0,0,0,0.08);
 }
 
-/* Responsive */
-@media (max-width:850px){
-.hero{grid-template-columns:1fr;text-align:center}
-.brand-box{flex-direction:column}
-.founder{grid-template-columns:1fr}
-.programs{grid-template-columns:1fr}
-nav{display:none}
+/* RESPONSIVE */
+@media(max-width:850px){
+.brand-wrap{grid-template-columns:1fr;text-align:center;}
+.features{grid-template-columns:1fr;}
+.hero-slider{height:75vh;}
+nav{display:none;}
 }
 </style>
 </head>
@@ -154,106 +169,142 @@ nav{display:none}
 <img src="https://atikahmed.online/wp-content/uploads/2025/11/alokchitra-logo-scaled.png">
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <header>
-<strong>ALOKCHITRA</strong>
+<div class="logo">ALOKCHITRA</div>
 <nav>
 <a href="#brand">Brand</a>
+<a href="#features">Features</a>
 <a href="#founder">Founder</a>
-<a href="#programs">Programs</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-<div>
-<h1>Where <span>Light</span> Becomes Story.</h1>
-<p>Photography deserves a premium home — where stories stay clear, distractions disappear, and visuals truly shine.</p>
-<button class="btn" onclick="location.href='https://www.facebook.com/share/g/1W8Gnkm5ec/'">Join Community</button>
+<!-- HERO SLIDER -->
+<div class="hero-slider">
+
+<div class="slide active"
+style="background-image:url('https://atikahmed.online/wp-content/uploads/2025/11/515676202_122180304962294930_200632359381297375_n.jpg');">
+<div class="hero-overlay">
+<h1>Welcome to Alokchitra</h1>
+<p>A photography community designed for clarity, growth and real storytelling — where every frame matters.</p>
+<div class="hero-icons">
+<i onclick="window.open('https://www.facebook.com/share/g/1W8Gnkm5ec/')">f</i>
+<i onclick="window.open('https://www.instagram.com/')">i</i>
+<i onclick="window.open('https://wa.me/qr/6OOV6Z4UJKLBN1')">w</i>
+<i onclick="window.open('https://t.me/Alokchitra')">T</i>
 </div>
-<div class="hero-img">
-<img src="https://atikahmed.online/wp-content/uploads/2025/11/518272283_122182492982294930_2050981051542680339_n.jpg">
 </div>
-</section>
+</div>
+
+<div class="slide"
+style="background-image:url('https://atikahmed.online/wp-content/uploads/2025/11/518272283_122182492982294930_2050981051542680339_n.jpg');"></div>
+
+<div class="slide"
+style="background-image:url('https://atikahmed.online/wp-content/uploads/2025/11/492520125_1136970458185053_6091905134789172071_n.jpg');"></div>
+
+<div class="slide"
+style="background-image:url('https://atikahmed.online/wp-content/uploads/2025/11/499537030_1156436692905096_7357879002752437011_n.jpg');"></div>
+
+<div class="arrows">
+<div onclick="moveSlide(-1)">‹</div>
+<div onclick="moveSlide(1)">›</div>
+</div>
+</div>
 
 <!-- BRAND -->
 <section id="brand">
 <h2>Brand Identity</h2>
-<p class="s-desc">Photography-first platform built with passion.</p>
-<div class="card brand-box">
+<p class="sub">Alokchitra gives photography a premium home — clean, curated and respectful.</p>
+
+<div class="card brand-wrap">
 <img src="https://atikahmed.online/wp-content/uploads/2025/11/alokchitra-logo-scaled.png">
 <div>
-<p>ALOKCHITRA is a photography community built for those who care about visual quality, storytelling, and creative growth.</p>
-<br>
-<strong>Follow Us</strong><br><br>
-<a href="https://www.facebook.com/share/1B2c57zZFU/">Facebook Page</a><br>
-<a href="https://www.facebook.com/share/g/1W8Gnkm5ec/">Facebook Group</a><br>
-<a href="https://t.me/Alokchitra">Telegram</a>
+<p>We exist for those who love real photography — not noise. Presentation matters. Story matters. Growth matters.</p>
 </div>
 </div>
 </section>
 
-<!-- ABOUT -->
-<section>
+<!-- WHAT WE DO -->
+<section id="features">
 <h2>What We Do</h2>
-<p class="s-desc">Curated, clean and respectful photography experience.</p>
-<div class="card">
-We highlight powerful frames, support photographers through feedback, and build a polished archive for real growth.
+<p class="sub">Creating a place where strong visuals shine.</p>
+
+<div class="features">
+<div class="feature-card">
+<div class="feature-icon">🏆</div>
+<h3>Photo of the Week</h3>
+<p>Weekly spotlight for powerful frames.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">📰</div>
+<h3>Magazine Vision</h3>
+<p>Premium curation coming soon.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>Focused Community</h3>
+<p>No noise. No clutter. Pure photography.</p>
+</div>
 </div>
 </section>
 
 <!-- FOUNDER -->
 <section id="founder">
 <h2>The Vision Behind</h2>
-<p class="s-desc">Alokchitra grew under the hands of its founder.</p>
-<div class="founder">
-<img src="https://atikahmed.online/wp-content/uploads/2025/11/FB_IMG_1760122764190.jpg">
-<div>
-<h3 style="color:var(--accent)">Atik Ahmed</h3>
-<p>Founder · Bangladesh</p><br>
-<p style="color:var(--soft);font-size:15px;">
-Focused on making photography feel premium — not crowded.
-</p>
-</div>
-</div>
-</section>
+<p class="sub">Alokchitra grew under the leadership of its founder.</p>
 
-<!-- PROGRAMS -->
-<section id="programs">
-<h2>Programs</h2>
-<p class="s-desc">Featured works from our talented community.</p>
-<div class="programs">
-<div class="program">
-<h3>Photo of the Week 🏆</h3>
-<img class="week-photo" src="https://atikahmed.online/wp-content/uploads/2025/11/515676202_122180304962294930_200632359381297375_n.jpg">
+<div class="card founder-box">
+<img src="https://atikahmed.online/wp-content/uploads/2025/11/FB_IMG_1760122764190.jpg">
+
+<div>
+<h3 style="color:var(--accent);font-size:22px">Atik Ahmed</h3>
+<p style="font-size:15px;color:var(--soft)">Founder · Bangladesh</p>
+<div class="founder-social">
+<i onclick="window.open('https://www.facebook.com/')">f</i>
+<i onclick="window.open('https://www.instagram.com/')">i</i>
+<i onclick="window.open('https://t.me/Alokchitra')">T</i>
+<i onclick="window.open('https://wa.me/qr/6OOV6Z4UJKLBN1')">w</i>
+<i onclick="window.open('mailto:atik.magicbox@gmail.com')">@</i>
 </div>
-<div class="program">
-<h3>Magazine Feature 📰</h3>
-<p>Soon launching premium curation in magazine-style showcases.</p>
-</div>
-<div class="program">
-<h3>Future Vision 🚀</h3>
-<p>Editorial level storytelling — evolving as the community grows.</p>
 </div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Contact</h2>
-<div class="card contact">
-<a href="mailto:atik.magicbox@gmail.com">Email</a>
+<h2>Contact & Platforms</h2>
+<p class="sub">Let’s build and grow together.</p>
+
+<div class="card contact-btns">
+<a href="https://www.facebook.com/">Facebook</a>
 <a href="https://t.me/Alokchitra">Telegram</a>
+<a href="mailto:atik.magicbox@gmail.com">Email</a>
 <a href="https://www.fiverr.com/sellers/atik_ahmmad/">Fiverr</a>
 </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-© 2025 ALOKCHITRA — The World Through the Camera’s Eye
-</footer>
+<footer>© 2025 ALOKCHITRA · The World Through the Camera’s Eye</footer>
+
+<!-- JS: Slider -->
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+function moveSlide(n) {
+slideIndex = (slideIndex + n + slides.length) % slides.length;
+showSlides();
+}
+function showSlides() {
+slides.forEach(s => s.classList.remove('active'));
+slides[slideIndex].classList.add('active');
+}
+setInterval(()=>moveSlide(1),4500);
+</script>
 
 </body>
 </html>
+
 
