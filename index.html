@@ -5,30 +5,31 @@
 <title>ALOKCHITRA – Where Light Becomes Story</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Fonts -->
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#F5F7FE;
---glass:rgba(255,255,255,0.52);
---blur:10px;
---border:rgba(255,255,255,.35);
---text:#1A1F36;
---soft:#5C6483;
+:root {
+--bg:#F6F8FF;
+--glass:rgba(255,255,255,0.55);
+--blur:14px;
 --accent:#1E88FF;
---radius:20px;
---shadow:0px 10px 40px rgba(0,0,0,0.1);
+--text:#1A1F36;
+--soft:#556280;
+--radius:22px;
+--shadow:0px 18px 40px rgba(0,0,0,0.10);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins";}
 
 body{background:var(--bg);color:var(--text);overflow-x:hidden}
 
-/* PRELOADER */
+/* Preloader */
 #preloader{
-position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:99999;
-animation:fadeOut 1s ease 2s forwards;
+position:fixed;inset:0;background:#fff;display:flex;
+align-items:center;justify-content:center;
+z-index:99999;
+animation:fadeOut 1s ease 2.2s forwards;
 }
 #preloader img{
 width:80px;animation:spin 2s linear infinite;
@@ -36,86 +37,112 @@ width:80px;animation:spin 2s linear infinite;
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes fadeOut{to{opacity:0;visibility:hidden}}
 
+/* Navigation */
 header{
-position:sticky;top:0;width:100%;
-backdrop-filter:blur(12px);background:rgba(255,255,255,0.6);
-border-bottom:1px solid var(--border);
-display:flex;justify-content:space-between;align-items:center;
-padding:12px 20px;z-index:1000;
+position:sticky;top:0;background:rgba(255,255,255,0.55);
+backdrop-filter:blur(16px);
+padding:14px 10vw;
+display:flex;justify-content:space-between;
+border-bottom:1px solid rgba(0,0,0,0.07);
+z-index:100;
 }
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{width:50px;height:50px;border-radius:12px}
 nav a{
-margin:0 12px;font-weight:500;font-size:14px;
-text-decoration:none;color:var(--soft);transition:0.2s;
+margin-left:20px;text-decoration:none;color:var(--soft);
+font-size:14px;font-weight:500;transition:.2s
 }
 nav a:hover{color:var(--accent)}
 
+/* Hero */
 .hero{
-display:grid;grid-template-columns:1.3fr 1fr;gap:40px;
-padding:60px 10vw;
+padding:80px 10vw;display:grid;
+grid-template-columns:1.2fr 1fr;gap:40px;
 align-items:center;
 }
 .hero h1{
-font-size:42px;font-weight:700;line-height:1.2;
+font-size:45px;font-weight:700;
 }
 .hero span{color:var(--accent);}
 .hero p{font-size:15px;color:var(--soft);margin:12px 0;}
-.hero button{
-margin-right:10px;background:var(--accent);border:none;color:#fff;
-padding:10px 20px;border-radius:9999px;font-size:14px;cursor:pointer;
+.btn{
+background:var(--accent);border:none;
+padding:10px 22px;border-radius:999px;
+color:#fff;cursor:pointer;margin-right:10px;
 }
 .hero-img{
-border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+border-radius:var(--radius);overflow:hidden;
+box-shadow:var(--shadow);
 }
 .hero-img img{width:100%;height:100%;object-fit:cover;}
 
+/* Sections */
 section{padding:60px 10vw;}
-h2{font-size:26px;font-weight:600;margin-bottom:10px}
-.s-desc{font-size:14px;color:var(--soft);margin-bottom:25px;}
+h2{font-weight:600;font-size:28px;margin-bottom:8px}
+.s-desc{font-size:14px;color:var(--soft);margin-bottom:20px;}
 
 .card{
 background:var(--glass);backdrop-filter:blur(var(--blur));
-border-radius:var(--radius);padding:25px;border:1px solid var(--border);
+border-radius:var(--radius);padding:25px;
+border:1px solid rgba(255,255,255,0.30);
 box-shadow:var(--shadow);
+}
+
+/* Brand */
+.brand-box{
+display:flex;gap:40px;align-items:center;
+}
+.brand-box img{
+width:120px;border-radius:20px;box-shadow:var(--shadow);
 }
 
 /* Founder */
 .founder{
-display:grid;grid-template-columns:0.6fr 1fr;gap:30px;align-items:center;
+display:grid;grid-template-columns:0.7fr 1fr;gap:35px;
+align-items:center;
 }
-.founder-photo img{
-width:100%;border-radius:var(--radius);
-box-shadow:var(--shadow);
+.founder img{
+width:100%;border-radius:var(--radius);box-shadow:var(--shadow);
 }
 
-/* Week Best */
-.week-best-img{
-width:100%;border-radius:var(--radius);
-height:350px;object-fit:cover;box-shadow:var(--shadow);
+/* Programs */
+.programs{
+display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;
+}
+.program{
+padding:20px;border-radius:var(--radius);
+background:var(--glass);
+backdrop-filter:blur(var(--blur));
+box-shadow:var(--shadow);
+}
+.program h3{font-size:16px;margin-bottom:8px;color:var(--accent)}
+.week-photo{
+width:100%;height:320px;border-radius:var(--radius);
+object-fit:cover;box-shadow:var(--shadow);
 }
 
 /* Contact */
-.contact-row a{
-display:inline-block;margin:8px 12px 0 0;
-padding:8px 18px;border-radius:999px;
-background:#fff;border:1px solid var(--border);
-font-size:13px;color:var(--accent);text-decoration:none;
+.contact a{
+display:inline-block;margin:10px 12px 0 0;
+padding:10px 20px;border-radius:999px;
+background:#fff;border:1px solid rgba(0,0,0,0.07);
+font-size:14px;color:var(--accent);text-decoration:none;
+transition:.2s;
 }
-.contact-row a:hover{background:var(--accent);color:#fff}
+.contact a:hover{background:var(--accent);color:#fff}
 
-/* FOOTER */
+/* Footer */
 footer{
-text-align:center;padding:20px;background:#fff;
-color:var(--soft);font-size:12px;
-border-top:1px solid rgba(0,0,0,0.08);
+text-align:center;padding:22px;background:#fff;
+font-size:12px;color:var(--soft);
+border-top:1px solid rgba(0,0,0,0.07);
 }
 
-/* RESPONSIVE */
-@media (max-width:800px){
-.hero{grid-template-columns:1fr;text-align:center;}
-.founder{grid-template-columns:1fr;}
-nav{display:none;}
+/* Responsive */
+@media (max-width:850px){
+.hero{grid-template-columns:1fr;text-align:center}
+.brand-box{flex-direction:column}
+.founder{grid-template-columns:1fr}
+.programs{grid-template-columns:1fr}
+nav{display:none}
 }
 </style>
 </head>
@@ -124,20 +151,16 @@ nav{display:none;}
 
 <!-- PRELOADER -->
 <div id="preloader">
-<img src="http://alokchitra.online/wp-content/uploads/2025/06/preloader.png">
+<img src="https://atikahmed.online/wp-content/uploads/2025/11/alokchitra-logo-scaled.png">
 </div>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <header>
-<div class="logo">
-<img src="http://alokchitra.online/wp-content/uploads/2025/06/preloader.png">
-<div><strong>ALOKCHITRA</strong></div>
-</div>
-
+<strong>ALOKCHITRA</strong>
 <nav>
-<a href="#about">About</a>
+<a href="#brand">Brand</a>
 <a href="#founder">Founder</a>
-<a href="#weekbest">Week Best</a>
+<a href="#programs">Programs</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
@@ -146,64 +169,91 @@ nav{display:none;}
 <section class="hero">
 <div>
 <h1>Where <span>Light</span> Becomes Story.</h1>
-<p>A curated space for serious photography lovers — clean visuals, real storytelling, and supportive community.</p>
-<button onclick="location.href='https://www.facebook.com/share/g/1W8Gnkm5ec/'">Join Community</button>
-<button onclick="location.href='https://t.me/Alokchitra'">Telegram</button>
+<p>Photography deserves a premium home — where stories stay clear, distractions disappear, and visuals truly shine.</p>
+<button class="btn" onclick="location.href='https://www.facebook.com/share/g/1W8Gnkm5ec/'">Join Community</button>
 </div>
-
 <div class="hero-img">
 <img src="https://atikahmed.online/wp-content/uploads/2025/11/518272283_122182492982294930_2050981051542680339_n.jpg">
 </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-<h2>About Alokchitra</h2>
-<p class="s-desc">Created to make photography feel premium, not crowded.</p>
+<!-- BRAND -->
+<section id="brand">
+<h2>Brand Identity</h2>
+<p class="s-desc">Photography-first platform built with passion.</p>
+<div class="card brand-box">
+<img src="https://atikahmed.online/wp-content/uploads/2025/11/alokchitra-logo-scaled.png">
+<div>
+<p>ALOKCHITRA is a photography community built for those who care about visual quality, storytelling, and creative growth.</p>
+<br>
+<strong>Follow Us</strong><br><br>
+<a href="https://www.facebook.com/share/1B2c57zZFU/">Facebook Page</a><br>
+<a href="https://www.facebook.com/share/g/1W8Gnkm5ec/">Facebook Group</a><br>
+<a href="https://t.me/Alokchitra">Telegram</a>
+</div>
+</div>
+</section>
 
+<!-- ABOUT -->
+<section>
+<h2>What We Do</h2>
+<p class="s-desc">Curated, clean and respectful photography experience.</p>
 <div class="card">
-<p>Alokchitra believes every photograph deserves respect — clean presentation, thoughtful curation, and true feedback.</p>
-<p>We keep the community focused and supportive — not noisy. Quality over quantity.</p>
+We highlight powerful frames, support photographers through feedback, and build a polished archive for real growth.
 </div>
 </section>
 
 <!-- FOUNDER -->
 <section id="founder">
-<h2>Founder Highlight</h2>
+<h2>The Vision Behind</h2>
+<p class="s-desc">Alokchitra grew under the hands of its founder.</p>
 <div class="founder">
-<div class="founder-photo">
-<img src="https://drive.google.com/uc?export=view&id=180PViB0pgCqRmi5vOovQAZoHXeW4WY_z">
-</div>
+<img src="https://atikahmed.online/wp-content/uploads/2025/11/FB_IMG_1760122764190.jpg">
 <div>
-<h3 style="margin-bottom:6px;">Atik Ahmed</h3>
-<p class="s-desc">Founder · Bangladesh</p>
-<p style="font-size:14px;color:var(--soft);">Bringing photographers together, building a brand that respects the art of visual storytelling.</p>
+<h3 style="color:var(--accent)">Atik Ahmed</h3>
+<p>Founder · Bangladesh</p><br>
+<p style="color:var(--soft);font-size:15px;">
+Focused on making photography feel premium — not crowded.
+</p>
 </div>
 </div>
 </section>
 
-<!-- WEEK BEST -->
-<section id="weekbest">
-<h2>Photo of The Week</h2>
-<img class="week-best-img" src="https://atikahmed.online/wp-content/uploads/2025/11/515676202_122180304962294930_200632359381297375_n.jpg">
-<p class="s-desc">A strong moment, a story in one frame.</p>
+<!-- PROGRAMS -->
+<section id="programs">
+<h2>Programs</h2>
+<p class="s-desc">Featured works from our talented community.</p>
+<div class="programs">
+<div class="program">
+<h3>Photo of the Week 🏆</h3>
+<img class="week-photo" src="https://atikahmed.online/wp-content/uploads/2025/11/515676202_122180304962294930_200632359381297375_n.jpg">
+</div>
+<div class="program">
+<h3>Magazine Feature 📰</h3>
+<p>Soon launching premium curation in magazine-style showcases.</p>
+</div>
+<div class="program">
+<h3>Future Vision 🚀</h3>
+<p>Editorial level storytelling — evolving as the community grows.</p>
+</div>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Connect & Platforms</h2>
-
-<div class="card contact-row">
-<a href="https://www.facebook.com/share/1B2c57zZFU/">Facebook Page</a>
-<a href="https://www.facebook.com/share/g/1W8Gnkm5ec/">Facebook Group</a>
-<a href="https://t.me/Alokchitra">Telegram</a>
+<h2>Contact</h2>
+<div class="card contact">
 <a href="mailto:atik.magicbox@gmail.com">Email</a>
+<a href="https://t.me/Alokchitra">Telegram</a>
 <a href="https://www.fiverr.com/sellers/atik_ahmmad/">Fiverr</a>
 </div>
 </section>
 
 <!-- FOOTER -->
-<footer>© 2025 ALOKCHITRA | Designed with Photography in mind</footer>
+<footer>
+© 2025 ALOKCHITRA — The World Through the Camera’s Eye
+</footer>
 
 </body>
 </html>
+
